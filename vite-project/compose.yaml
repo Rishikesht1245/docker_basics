@@ -1,0 +1,12 @@
+services:
+  # for web applications we use web
+  web:
+    build:
+      context: .
+      # port mapping
+    ports:
+      - 5173:5173
+      # mentioning volumes -v "$(pwd)/app" and -v /app/node_modules
+    volumes:
+      - .:/app
+      - /app/node_modules
