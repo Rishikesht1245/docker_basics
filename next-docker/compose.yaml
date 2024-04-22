@@ -24,6 +24,8 @@ services:
           #Using mongo db atlas not using the image
     environment:
       - DB_URL=mongodb+srv://sujata:rnZzJjIDr3bIDymV@cluster0.hnn88vs.mongodb.net/
+    volumes:
+      - ./:/app
 
 volumes:
   tasked:
