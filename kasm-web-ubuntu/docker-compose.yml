@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+ ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kasm-nodejs-container
+    shm_size: 912m
+    user: root
+    volumes:
+      - ./dev:/home/kasm-user/Desktop/dev
+    ports:
+      - "6901:6901"
+    environment:
+      - VNC_PW=passwd
+    tty: true
+    stdin_open: true
+
+#  chrome:
+#     image: kasmweb/brave:1.15.0
+#     environment:
+#       - VNC_PW=passwd
+#     ports:
+#       - "6902:6901" 
+#     networks:
+#       - my-network
+
+#  vscode:
+#     image: kasmweb/vs-code:1.15.0
+#     volumes:
+#       - ./dev:/home/kasm-user/Documents
+#     environment:
+#       - VNC_PW=passwd
+#     ports:
+#       - "6903:6901" 
+#     networks:
+#       - my-network
+
+
+networks:
+  my-network:
+    driver: bridge
+  
