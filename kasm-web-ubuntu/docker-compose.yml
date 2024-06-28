@@ -5,8 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: kasm-nodejs-container
-    shm_size: 912m
+    shm_size: 2gb
     user: root
+    privileged: true
     volumes:
       - ./dev:/home/kasm-user/Desktop/dev
     ports:
